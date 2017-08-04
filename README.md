@@ -37,8 +37,7 @@ A basic tool providing an easy way to generate blocks of mock data for tests or 
 ### API Documentation
 
 #### Factory Class
-
--
+----
 
 __Creating Instance__
 - To use simple-factory you must initialize a new instance of the factory in the file you will register your factories.
