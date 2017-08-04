@@ -42,23 +42,20 @@ __Creating Instance__
 - To use simple-factory you must initialize a new instance of the factory in the file you will register your factories.
   `const MyFactory = new Factory()`
 
-__Factory.register__
-Method used to register a new mock data type.
+__Factory.register__ | Method used to register a new mock data type.
 - Takes two arguments
   1. `type: string` - mock data type name (ie. 'User')
   2. `generator: Function` - mock data type generator
 - Generator function must return an object
 - Cannot register two mock data types with the same name
 
-__Factory.create__
-Method used to generate a mock dataset of a type
+__Factory.create__ | Method used to generate a mock dataset of a type
 - Takes one argument
   1. `type: string` - mock data type name (ie. 'User')
 - Mock data type name must be registered
 - Returns object created by matching type's generator passed in `register`
 
-__Factory.createMany__
-Method used to generate an array of mock datasets of a type
+__Factory.createMany__ | Method used to generate an array of mock datasets of a type
 - Takes two arguments
   1. `type: string` -  mock data type name (ie. 'User')
   2. `count: number` - amount of datasets to create
