@@ -38,6 +38,8 @@ A basic tool providing an easy way to generate blocks of mock data for tests or 
 
 #### Factory Class
 
+-
+
 __Creating Instance__
 - To use simple-factory you must initialize a new instance of the factory in the file you will register your factories.
   `const MyFactory = new Factory()`
