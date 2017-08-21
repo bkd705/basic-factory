@@ -1,8 +1,8 @@
 {
-  "name": "simple-factory",
-  "version": "1.0.0",
+  "name": "basic-factory",
+  "version": "0.0.1",
   "main": "index.js",
-  "repository": "https://github.com/bkd705/simple-factory.git",
+  "repository": "https://github.com/bkd705/basic-factory.git",
   "author": "bkd705 <brennenkdenomme@gmail.com>",
   "license": "MIT",
   "scripts": {

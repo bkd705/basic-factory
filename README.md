@@ -1,19 +1,25 @@
-# Simple Factory
+# Basic Factory
 
 A basic tool providing an easy way to generate blocks of mock data for tests or as placeholders.
 
-### Usage
+### Basic Usage
 
-1. Import Factory in `{appDir}/helpers/factories.js`
+1. Install NPM package
   ```
-  import Factory from 'simple-factory'
+    npm install --save-dev basic-factory
+    // OR YARN
+    yarn add --dev basic-factory
   ```
-2. Initialize a new Factory
+2. Import Factory in `{appDir}/helpers/factories.js`
+  ```javascript
+  import BasicFactory from 'basic-factory'
   ```
-  const MyFactory = new Factory()
+3. Initialize a new Factory
+  ```javascript
+  const MyFactory = new BasicFactory()
   ```
-3. Register your Factory generators
-  ```
+4. Register your Factory generators
+  ```javascript
   MyFactory.register('User', () => {
     // Would probably use Faker or something to generate these fields randomly.
     return {
@@ -22,12 +28,12 @@ A basic tool providing an easy way to generate blocks of mock data for tests or 
     }
   })
   ```
-4. Export your Factory instance
-  ```
+5. Export your Factory instance
+  ```javascript
   export default MyFactory
   ```
-5. Use factory in other files
-  ```
+6. Use factory in other files
+  ```javascript
   import MyFactory from '{appDir}/helpers/factories'
 
   const oneUser = MyFactory.create('User')
@@ -41,31 +47,16 @@ A basic tool providing an easy way to generate blocks of mock data for tests or 
 
 __Creating Instance__
 - To use simple-factory you must initialize a new instance of the factory in the file you will register your factories.
-  `const MyFactory = new Factory()`
+  `const MyFactory = new BasicFactory()`
 
-__Factory.register__ | Method used to register a new mock data type.
-- Takes two arguments
-  1. `type: string` - mock data type name (ie. 'User')
-  2. `generator: Function` - mock data type generator
-- Generator function must return an object
-- Cannot register two mock data types with the same name
+__Instance Methods__
+| Method Name | Description | Arguments | Returns | Notes |
+|---|---|---|---|---|
+| __Factory.register__ | Method used to register a new mock data type. |1. `type: string` - mock data type name (ie. 'User')  <br /> 2. `generator: Function` - mock data type generator | N/A | - Generator function must return an object <br /> - Cannot register two mock data types with the same name |
+| __Factory.create__ | Method used to generate a mock dataset of a type | 1. `type: string` - mock data type name (ie. 'User') | Object filled by matching `type`'s generator output. | - Mock data type name must be registered |
+| __Factory.createMany__ | Method used to generate an array of mock datasets of a type | 1. `type: string` -  mock data type name (ie. 'User') <br /> 2. `count: number` - amount of datasets to create | `count` length array of objects filled by matching `type`'s generator output. | - Count must be greater than 0 |
 
-__Factory.create__ | Method used to generate a mock dataset of a type
-- Takes one argument
-  1. `type: string` - mock data type name (ie. 'User')
-- Mock data type name must be registered
-- Returns object created by matching type's generator passed in `register`
-
-__Factory.createMany__ | Method used to generate an array of mock datasets of a type
-- Takes two arguments
-  1. `type: string` -  mock data type name (ie. 'User')
-  2. `count: number` - amount of datasets to create
-- Returns an array of objects created by matching type's generator passed in `register`
-- count must be greater than 0
-
-### Running Project
-
-There isn't anything other than just tests, so heres how to run tests.
+### Project Development
 
 - `yarn` / `npm install`
 - `yarn test` / `npm run test`
