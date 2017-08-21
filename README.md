@@ -1,5 +1,7 @@
 # Basic Factory
 
+[![Build Status](https://travis-ci.org/bkd705/basic-factory.svg?branch=master)](https://travis-ci.org/bkd705/basic-factory)
+
 A basic tool providing an easy way to generate blocks of mock data for tests or as placeholders.
 
 ### Basic Usage
