@@ -1,6 +1,6 @@
 {
   "name": "basic-factory",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "main": "./dist/Factory.js",
   "repository": "https://github.com/bkd705/basic-factory.git",
   "author": "bkd705 <brennenkdenomme@gmail.com>",
