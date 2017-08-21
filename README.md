@@ -12,11 +12,11 @@ A basic tool providing an easy way to generate blocks of mock data for tests or 
   ```
 2. Import Factory in `{appDir}/helpers/factories.js`
   ```javascript
-  import BasicFactory from 'basic-factory'
+  import Factory from 'simple-factory'
   ```
 3. Initialize a new Factory
   ```javascript
-  const MyFactory = new BasicFactory()
+  const MyFactory = new Factory()
   ```
 4. Register your Factory generators
   ```javascript
@@ -39,22 +39,6 @@ A basic tool providing an easy way to generate blocks of mock data for tests or 
   const oneUser = MyFactory.create('User')
   const arrayOfUsers = MyFactory.createMany('User', 5)
   ```
-
-### API Documentation
-
-#### Factory Class
-----
-
-__Creating Instance__
-- To use simple-factory you must initialize a new instance of the factory in the file you will register your factories.
-  `const MyFactory = new BasicFactory()`
-
-__Instance Methods__
-| Method Name | Description | Arguments | Returns | Notes |
-|---|---|---|---|---|
-| __Factory.register__ | Method used to register a new mock data type. |1. `type: string` - mock data type name (ie. 'User')  <br /> 2. `generator: Function` - mock data type generator | N/A | - Generator function must return an object <br /> - Cannot register two mock data types with the same name |
-| __Factory.create__ | Method used to generate a mock dataset of a type | 1. `type: string` - mock data type name (ie. 'User') | Object filled by matching `type`'s generator output. | - Mock data type name must be registered |
-| __Factory.createMany__ | Method used to generate an array of mock datasets of a type | 1. `type: string` -  mock data type name (ie. 'User') <br /> 2. `count: number` - amount of datasets to create | `count` length array of objects filled by matching `type`'s generator output. | - Count must be greater than 0 |
 
 ### Project Development
 
