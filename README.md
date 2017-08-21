@@ -44,3 +44,7 @@ A basic tool providing an easy way to generate blocks of mock data for tests or 
 
 - `yarn` / `npm install`
 - `yarn test` / `npm run test`
+
+### Contributing
+
+See [CONTRIBUTING.md](https://github.com/bkd705/basic-factory/blob/master/CONTRIBUTING.md)
