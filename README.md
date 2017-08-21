@@ -14,11 +14,15 @@ A basic tool providing an easy way to generate blocks of mock data for tests or 
   ```
 2. Import Factory in `{appDir}/helpers/factories.js`
   ```javascript
-  import Factory from 'simple-factory'
+  // ES6
+  import BasicFactory from 'basic-factory'
+
+  //ES5
+  const BasicFactory = require('basic-factory').default
   ```
 3. Initialize a new Factory
   ```javascript
-  const MyFactory = new Factory()
+  const MyFactory = new BasicFactory()
   ```
 4. Register your Factory generators
   ```javascript
