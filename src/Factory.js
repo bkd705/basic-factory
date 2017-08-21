@@ -1,5 +1,7 @@
 export default class Factory {
-  registeredTypes = {}
+  constructor() {
+    this.registeredTypes = {}
+  }
 
   register = (type, generator) => {
     if (this.registeredTypes[type])
