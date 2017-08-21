@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import Factory from '../Factory'
+import Factory from '../src/Factory'
 
 describe('Factory', () => {
   let TestFactory
