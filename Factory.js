@@ -1,11 +1,10 @@
+// @flow
 import { overwriteMerge } from './lib/objectMerge'
 
 export default class Factory {
-  constructor() {
-    this.registeredTypes = {}
-  }
+  registeredTypes: Object = {}
 
-  register = (type, generator) => {
+  register = (type: string, generator: Function): void => {
     if (this.registeredTypes[type]) {
       throw new Error(`Type ${type} already exists.`)
     }
@@ -17,7 +16,7 @@ export default class Factory {
     this.registeredTypes[type] = generator
   }
 
-  create = (type, overwrites) => {
+  create = (type: string, overwrites: Object): Object => {
     if (this.registeredTypes[type] === undefined) {
       throw new Error(`Type ${type} does not exist.`)
     }
@@ -29,7 +28,11 @@ export default class Factory {
     return this.registeredTypes[type]()
   }
 
-  createMany = (type, count, overwrites) => {
+  createMany = (
+    type: string,
+    count: number,
+    overwrites: Object
+  ): Array<Object> => {
     if (this.registeredTypes[type] === undefined) {
       throw new Error(`Type ${type} does not exist.`)
     }
