@@ -6,21 +6,23 @@ describe('Factory', () => {
 
   beforeEach(() => {
     TestFactory = new Factory()
+
+    TestFactory.register('Test', () => ({
+      name: 'brennen'
+    }))
   })
 
   describe('register', () => {
     it('should add a new type to registeredTypes', () => {
-      TestFactory.register('test', () => ({}))
-      expect(TestFactory.registeredTypes).to.have.property('test')
+      expect(TestFactory.registeredTypes).to.have.property('Test')
     })
 
     it('should throw error if type already exists', () => {
-      TestFactory.register('test', () => ({}))
-      expect(() => TestFactory.register('test', () => {})).to.throw()
+      expect(() => TestFactory.register('Test', () => {})).to.throw()
     })
 
     it('should throw an error if return type of generator is not an object', () => {
-      expect(() => TestFactory.register('test', f => f)).to.throw()
+      expect(() => TestFactory.register('NoopTest', f => f)).to.throw()
     })
   })
 
@@ -30,11 +32,13 @@ describe('Factory', () => {
     })
 
     it('should return a object from type generator', () => {
-      TestFactory.register('test', () => ({
-        name: 'brennen'
-      }))
-      const output = TestFactory.create('test')
+      const output = TestFactory.create('Test')
       expect(output).to.deep.equal({ name: 'brennen' })
+    })
+
+    it('should overwrite generated values if provided with overwrites', () => {
+      const output = TestFactory.create('Test', { name: 'kyle' })
+      expect(output.name).to.equal('kyle')
     })
   })
 
@@ -44,16 +48,21 @@ describe('Factory', () => {
     })
 
     it('should throw an error if count is not provided', () => {
-      expect(() => TestFactory.createMany('gravy')).to.throw()
+      expect(() => TestFactory.createMany('Test')).to.throw()
     })
 
     it('should throw an error if count is not greater than 0', () => {
-      expect(() => TestFactory.createMany('pulledpork', 0)).to.throw()
+      expect(() => TestFactory.createMany('Test', 0)).to.throw()
     })
 
     it('should return an array of generated types', () => {
-      TestFactory.register('user', () => ({ username: 'bkd705' }))
-      expect(TestFactory.createMany('user', 2)).to.have.length(2)
+      expect(TestFactory.createMany('Test', 2)).to.have.length(2)
+    })
+
+    it('should overwrite generated values if provided with overwrites', () => {
+      const output = TestFactory.createMany('Test', 2, { name: 'kyle' })
+      expect(output[0].name).to.equal('kyle')
+      expect(output[1].name).to.equal('kyle')
     })
   })
 })
