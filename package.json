@@ -1,7 +1,7 @@
 {
   "name": "basic-factory",
   "version": "0.0.2",
-  "main": "./dist/Factory.js",
+  "main": "./dist/basic-factory.js",
   "repository": "https://github.com/bkd705/basic-factory.git",
   "author": "bkd705 <brennenkdenomme@gmail.com>",
   "license": "MIT",
