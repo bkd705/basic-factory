@@ -6,18 +6,18 @@
   "author": "bkd705 <brennenkdenomme@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "mocha --compilers js:babel-register",
-    "build": "NODE_ENV=production webpack --progress --colors"
+    "test": "mocha --require @babel/register",
+    "build": "NODE_ENV=production rollup --config"
   },
   "devDependencies": {
-    "babel-loader": "^7.1.2",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "babel-register": "^6.24.1",
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/register": "^7.7.4",
     "chai": "^4.1.0",
     "flow": "^0.2.3",
     "mocha": "^3.5.0",
-    "webpack": "^3.5.5"
+    "rollup": "^1.27.5",
+    "rollup-plugin-babel": "^4.3.3"
   },
   "dependencies": {
     "deepmerge": "^1.5.1"

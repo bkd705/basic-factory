@@ -1,12 +1,10 @@
 import { overwriteMerge } from './lib/objectMerge'
 
-export default class Factory {
-  constructor() {
-    this.registeredTypes = {}
-  }
+export default function Factory() {
+  const registeredTypes = {}
 
-  register = (type, generator) => {
-    if (this.registeredTypes[type]) {
+  function register(type, generator) {
+    if (registeredTypes[type]) {
       throw new Error(`Type ${type} already exists.`)
     }
 
@@ -14,23 +12,23 @@ export default class Factory {
       throw new Error('generator must return an object')
     }
 
-    this.registeredTypes[type] = generator
+    registeredTypes[type] = generator
   }
 
-  create = (type, overwrites) => {
-    if (this.registeredTypes[type] === undefined) {
+  function create(type, overwrites) {
+    if (registeredTypes[type] === undefined) {
       throw new Error(`Type ${type} does not exist.`)
     }
 
     if (overwrites) {
-      return overwriteMerge(this.registeredTypes[type](), overwrites)
+      return overwriteMerge(registeredTypes[type](), overwrites)
     }
 
-    return this.registeredTypes[type]()
+    return registeredTypes[type]()
   }
 
-  createMany = (type, count, overwrites) => {
-    if (this.registeredTypes[type] === undefined) {
+  function createMany(type, count, overwrites) {
+    if (registeredTypes[type] === undefined) {
       throw new Error(`Type ${type} does not exist.`)
     }
 
@@ -44,10 +42,16 @@ export default class Factory {
 
     if (overwrites) {
       return [...Array(count)].map(i =>
-        overwriteMerge(this.registeredTypes[type](), overwrites)
+        overwriteMerge(registeredTypes[type](), overwrites)
       )
     }
 
-    return [...Array(count)].map(i => this.registeredTypes[type]())
+    return [...Array(count)].map(i => registeredTypes[type]())
+  }
+
+  return {
+    register,
+    create,
+    createMany
   }
 }
