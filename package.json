@@ -1,6 +1,6 @@
 {
   "name": "basic-factory",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "main": "./dist/basic-factory.js",
   "repository": "https://github.com/bkd705/basic-factory.git",
   "author": "bkd705 <brennenkdenomme@gmail.com>",
@@ -9,6 +9,9 @@
     "test": "mocha --require @babel/register",
     "build": "NODE_ENV=production rollup --config"
   },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@babel/core": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
