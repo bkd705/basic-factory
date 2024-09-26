@@ -19,7 +19,7 @@
     "chai": "^4.1.0",
     "flow": "^0.2.3",
     "mocha": "^3.5.0",
-    "rollup": "^1.27.5",
+    "rollup": "^2.79.2",
     "rollup-plugin-babel": "^4.3.3"
   },
   "dependencies": {
